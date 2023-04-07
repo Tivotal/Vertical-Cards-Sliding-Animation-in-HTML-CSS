@@ -1,0 +1,123 @@
+/* Created by Tivotal */
+
+/* Google Fonts(Poppins) */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom, #bea2e7 0%, #86b7e7 100%);
+}
+
+.wrapper .outer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper .outer .card {
+  width: 430px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  border-radius: 100px 20px 20px 100px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  animation: anim 15s linear infinite;
+  animation-delay: calc(3s * var(--delay));
+}
+
+.wrapper .outer:hover .card {
+  animation-play-state: paused;
+}
+
+.wrapper .outer .card:last-child {
+  animation-delay: calc(-3s * var(--delay));
+}
+
+@keyframes anim {
+  0% {
+    opacity: 0;
+    transform: translateY(100%) scale(0.5);
+  }
+  5%,
+  20% {
+    opacity: 0.4;
+    transform: translateY(100%) scale(0.7);
+  }
+  25%,
+  40% {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0) scale(1);
+  }
+  45%,
+  60% {
+    opacity: 0.4;
+    transform: translateY(-100%) scale(0.7);
+  }
+  65%,
+  100% {
+    opacity: 0;
+    transform: translateY(-100%) scale(0.5);
+  }
+}
+
+.wrapper .outer .card .content {
+  display: flex;
+  align-items: center;
+}
+
+.wrapper .outer .card .content .img {
+  height: 90px;
+  width: 90px;
+  background: #fff;
+  position: absolute;
+  left: -5px;
+  padding: 5px;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .outer .card .content .img img {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.wrapper .outer .card .content .details {
+  margin-left: 80px;
+}
+
+.wrapper .outer .card .content .details .name {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.wrapper .outer .card a {
+  text-decoration: none;
+  padding: 7px 18px;
+  border-radius: 25px;
+  color: #fff;
+  transition: all 0.3s ease;
+  background: linear-gradient(to bottom, #bea2e7 0%, #86b7e7 100%);
+}
+
+.wrapper .outer .card a:hover {
+  transform: scale(0.95);
+}
